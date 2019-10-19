@@ -1,0 +1,41 @@
+{
+    "name": "anti-censor",
+    "version": "0.0.1",
+    "manifest_version": 2,
+    "description": "You don't know what I say",
+    "homepage_url": "https://github.com/wanghsinche/anti-censor",
+    "icons": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "browser_action": {
+      "default_title": "anti-censor",
+      "default_popup": "popup.html"
+    },
+    "default_locale": "en",
+    "background": {
+      "scripts": [
+        "js/background.js"
+      ],
+      "persistent": true
+    },
+    "permissions": [
+      "https://*/*","cookies","storage","contextMenus"
+    ],
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'; ",
+    "web_accessible_resources":[
+      "js/spinner.svg"
+    ],
+    "content_scripts": [
+      {
+        "matches": [
+          "https://*/*"
+        ],
+        "js": [
+          "js/content.js"
+        ]
+      }
+    ]
+  }
+  

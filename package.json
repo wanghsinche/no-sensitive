@@ -1,0 +1,47 @@
+{
+  "name": "dourent",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "webpack --watch",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack && zip -r dourent.zip dist/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chrome": "^0.0.75",
+    "@types/react": "^16.9.9",
+    "css-loader": "^1.0.1",
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
+    "style-loader": "^0.23.1",
+    "ts-loader": "^5.3.1",
+    "typescript": "^3.1.6",
+    "webpack": "^4.26.1",
+    "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "@types/react-dom": "^16.9.2",
+    "@types/react-redux": "^7.1.4",
+    "cnchar": "^2.0.2",
+    "cnchar-order": "^2.0.2",
+    "cnchar-poly": "^2.0.2",
+    "cnchar-trad": "^2.0.2",
+    "copy-webpack-plugin": "^5.0.4",
+    "file-loader": "^4.2.0",
+    "i": "^0.3.6",
+    "js-cookie": "^2.2.1",
+    "lzutf8": "^0.5.5",
+    "memorize-one": "0.0.0",
+    "npm": "^6.12.0",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-redux": "^7.1.1",
+    "redux": "^4.0.4",
+    "redux-saga": "^1.1.1",
+    "sweetalert2": "^8.17.6"
+  }
+}
