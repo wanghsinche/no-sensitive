@@ -1,12 +1,12 @@
 {
-  "name": "dourent",
-  "version": "1.0.0",
+  "name": "nosensitive",
+  "version": "0.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
     "watch": "webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack && zip -r dourent.zip dist/"
+    "build": "webpack && zip -r nosensitive-0.0.2.zip dist/"
   },
   "keywords": [],
   "author": "",
