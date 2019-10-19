@@ -13,7 +13,7 @@ function encryptHandle(){
         if (typeof element.value === 'string' && element.value.length > 0) {
             chrome.storage.local.get(items=>{
                 const v = items[KEYNAME];
-                element.value = encrypt(element.value, v);
+                element.value = encrypt(element.value, v||'spark');
             })
  
         }
