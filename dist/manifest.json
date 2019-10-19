@@ -1,16 +1,16 @@
 {
-    "name": "anti-censor",
+    "name": "Rosnecon",
     "version": "0.0.1",
     "manifest_version": 2,
-    "description": "You don't know what I say",
-    "homepage_url": "https://github.com/wanghsinche/anti-censor",
+    "description": "You don't know what I talk about",
+    "homepage_url": "https://github.com/wanghsinche/no-sensitive",
     "icons": {
       "16": "icons/icon16.png",
-      "48": "icons/icon48.png",
+      "64": "icons/icon64.png",
       "128": "icons/icon128.png"
     },
     "browser_action": {
-      "default_title": "anti-censor",
+      "default_title": "Rosnecon",
       "default_popup": "popup.html"
     },
     "default_locale": "en",

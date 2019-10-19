@@ -1,34 +1,44 @@
 import * as React from "react"
+import {useState} from 'react';
 import * as ReactDOM from "react-dom"
+import {KEYNAME} from '../lib/constant';
+import {encryptMethod} from '../lib/utils';
 
 import "../styles/popup.css"
-type IAction = 'init';
-class Hello extends React.Component {
-    sendMsg=(action:IAction)=>{
-        chrome.tabs.query({active: true, currentWindow: true}, function (tabs){
-            const tb = tabs[0];
-            if (tb.url.includes('douban')){
-                chrome.tabs.sendMessage(tb.id, {action});
-                console.log('sent from popup');
+
+const Hello:React.FC=()=>{
+    const [method, setMethod] = useState('spark');
+    useState(()=>{
+        chrome.storage.local.get(res=>{
+            if (res[KEYNAME]){
+                setMethod(res[KEYNAME]);
             }
         });
-        chrome.tabs.create({url:'https://github.com/wanghsinche/dourent'})
-    }
-    render() {
-        return (
-            <div className="popup-padded">
-                <h3>
-                    豆瓣rent™ 
-                </h3>
-                <h4>
-                    豆瓣租房小组插件：让大家更快找到心水的房子
-                </h4>
-                <button onClick={()=>this.sendMsg('init')}>About me</button>
-            </div>
-        )
-    }
-}
+    });
 
+    function aboutMe(){
+        chrome.tabs.create({url:'https://github.com/wanghsinche'})
+    }
+    function changeMethod(e:React.ChangeEvent<HTMLSelectElement>){
+        const toSave:any = {};
+        toSave[KEYNAME] = e.target.value;
+        chrome.storage.local.set(toSave,()=>{
+            setMethod(toSave[KEYNAME]);
+        });
+    }
+    return <div className="popup-padded">
+        <h3>
+            rosnecon-文字转换器 
+        </h3>
+        <h4>
+            You don't know what I talk about
+        </h4>
+        <p>encrypt method: <select value={method} onChange={changeMethod}>{
+            encryptMethod.map(el=><option value={el} key={el}>{el}</option>)
+        }</select></p>
+        <button onClick={aboutMe}>About me</button>
+    </div>;
+}
 // --------------
 
 ReactDOM.render(

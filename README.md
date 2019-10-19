@@ -1,11 +1,10 @@
-# dourent
+# no-sensitive
 ## description
-
-豆瓣租房小组插件：让大家更快找到心水的房子。A house renting extension for douban. Everyone can find their favorite house quickly
+Encrypt sensitive words to avoid getting censored
 
 ## 下载地址
 
-[release](https://github.com/wanghsinche/dourent/releases)
+[release](https://github.com/wanghsinche/no-sensitive/releases)
 
 ## Developed from TypeScript / React / Webpack / Chrome Extension Boilerplate
 

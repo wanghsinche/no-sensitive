@@ -1,4 +1,4 @@
-import {TEXTHEADER} from '../lib/constant';
+import {TEXTHEADER, KEYNAME} from '../lib/constant';
 import * as LZUTF8 from 'lzutf8';
 
 import * as cnchar from 'cnchar';
@@ -6,6 +6,9 @@ import 'cnchar-poly';
 import 'cnchar-order';
 import 'cnchar-trad';
 
+export const encryptMethod = [
+    'spark', 'LZUTF8'
+];
 
 export function dateFormat(d:Date){
     const year = d.getFullYear();
@@ -41,11 +44,16 @@ function decodeSpark(s:string){
 
 
 
-export function encrypt(txt:string){
-    // const version = 'LZUTF8';
-    const version = 'spark';
-    // return encode(txt)+`|${TEXTHEADER}-${version}`;
-    return encodeSpark(txt)+`|${TEXTHEADER}-${version}`;
+export function encrypt(txt:string, version:string){
+    let encrypted = '';
+    if (version === 'LZUTF8') {
+        encrypted = encode(txt);
+    } else if (version === 'spark') {
+        encrypted = encodeSpark(txt);
+    } else {
+        encrypted = txt;
+    }
+    return encrypted+`|${TEXTHEADER}-${version}`;
 }
 
 export function decrypt(txt:string){
